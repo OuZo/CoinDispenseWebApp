@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= User.find(@cash_dispense.user_id).email.split("@")[0] %>
+</p>
+
+<p>
+  <b>Amount due:</b>
+  <%= @cash_dispense.amount_due %>
+</p>
+
+<p>
+  <b>Captured amount:</b>
+  <%= @cash_dispense.captured_amount %>
+</p>
+
+<p>
+<% @cash_dispense.calculate_break_down.each_with_index do |dom,index| %>
+	<% if dom.size > 0 %>
+		<%= dom.count %> x 
+		<%= CashDispense::DENOMINATIONS[index] %>
+		
+		<br />
+	<% end %>
+<% end %>
+</p>
+
+<%= link_to 'Edit', edit_cash_dispense_path(@cash_dispense) %> |
+<%= link_to 'Back', cash_dispenses_path %>

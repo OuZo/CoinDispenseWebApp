@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  amount_due: 9.99
+  captured_amount: 9.99
+  user_id: 1
+
+two:
+  amount_due: 9.99
+  captured_amount: 9.99
+  user_id: 1

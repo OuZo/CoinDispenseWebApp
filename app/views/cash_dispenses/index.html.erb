@@ -1,0 +1,27 @@
+<h1>Listing cash_dispenses</h1>
+
+<table border="1">
+  <tr>
+    <th>Amount due</th>
+    <th>Captured amount</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cash_dispenses.each do |cash_dispense| %>
+  <tr>
+    <td><%= cash_dispense.amount_due %></td>
+    <td><%= cash_dispense.captured_amount %></td>
+    <td><%= User.find(cash_dispense.user_id).email.split("@")[0] %></td>
+    <td><%= link_to 'Show', cash_dispense %></td>
+    <td><%= link_to 'Edit', edit_cash_dispense_path(cash_dispense) %></td>
+    <td><%= link_to 'Destroy', cash_dispense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Cash dispense', new_cash_dispense_path %>
